@@ -1,0 +1,452 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaDevs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    direction: rtl;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #1a1a2e;
+    color: #fff;
+    padding: 1.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #e94560; 
+}
+
+.logo a span {
+    color: #dddddd; 
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header nav ul li {
+    margin-left: 2rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: #e94560;
+    color: #fff;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #0f3460, #1a1a2e);
+    color: #fff;
+    padding: 8rem 0;
+    text-align: center;
+    border-radius: 0 0 40px 40px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 1.4rem;
+    margin-bottom: 2.5rem;
+    color: #e0e0e0;
+}
+
+.hero .btn {
+    background-color: #e94560;
+    color: #fff;
+    padding: 1.2rem 3rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #ff6b81;
+    transform: translateY(-5px);
+}
+
+/* Services Section */
+.services {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: #fff;
+}
+
+.services h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.service-item {
+    background-color: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+}
+
+.service-item p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Projects Section */
+.projects {
+    padding: 6rem 0;
+    text-align: center;
+    background-color: #f8f9fa;
+}
+
+.projects h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.project-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.project-item {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.project-item img {
+    width: 25%;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+}
+
+.project-item h3 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a2e;
+    color: #fff;
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-radius: 40px 40px 0 0;
+}
+
+footer p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a2e;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    header nav ul.active {
+        display: flex;
+    }
+
+    header nav ul li {
+        margin: 1rem 0;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a2e;
+    color: #fff;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    border-radius: 40px 40px 0 0;
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2rem;
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #e94560;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+footer ul li i {
+    margin-left: 0.5rem;
+    color: #e94560;
+}
+
+footer ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #e94560;
+}
+
+footer p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-top: 2rem;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#">Nova<span>Devs</span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">خانه</a></li>
+                    <li><a href="#services">خدمات</a></li>
+                    <li><a href="#projects">اعضای تیم</a></li>
+                    <li><a href="#contact">تماس با ما</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>خوش آمدید</h1>
+            <p>سایت تیم برنامه نویسی نوا برای خدمات دهی در حوزه وب هست شما میتوانید خدمات تیم نوا رو مشاهده کنید
+                وبرای استفاده از این خدمات با ما تماس بگیرید
+            </p>
+            <a href="#services" class="btn">شروع کنید</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>خدمات ما</h2>
+            <div class="service-list">
+                {%for service in services%}
+                <div class="service-item">
+                    <h3>{{service.title}}</h3>
+                    <p>{{service.description}}</p>
+                </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>اعضای تیم</h2>
+            {%for member in members%}
+            <div class="project-list">
+                <div class="project-item">
+                    <img src={{member.image.url}}>
+                    <a href="{% url 'home:member-detail' pk=member.id %}"><h3>{{member.first_name}} {{member.last_name}}</h3></a>
+                </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>تماس با ما</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> شماره تماس: 09108438101</li>
+                        <li><i class="fas fa-envelope"></i> ایمیل: mhmdbigdeli3@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>شبکه‌های اجتماعی</h3>
+                    <ul>
+                        <li>
+                            <a href="https://t.me/MHMD_B21" target="_blank">
+                                <i class="fab fa-telegram"></i> تلگرام: @MHMD_B21
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/_mhmd_0101" target="_blank">
+                                <i class="fab fa-instagram"></i> اینستاگرام: @_mhmd_0101
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com/in/mohamad-bigdeli-599941348" target="_blank">
+                                <i class="fab fa-linkedin"></i> لینکدین: NovaDevs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Mohamad-bigdeli" target="_blank">
+                                <i class="fab fa-github"></i> گیت‌هاب: NovaDevs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p>تمامی حقوق محفوظ است.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    document.querySelectorAll('header nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navUl = document.querySelector('header nav ul');
+    
+    mobileMenu.addEventListener('click', () => {
+        navUl.classList.toggle('active');
+    });
+    const sections = document.querySelectorAll('section');
+    
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+    
+            if (sectionTop < windowHeight * 0.8) {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            }
+        });
+    });</script>
+</html>

@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ member.first_name }} {{ member.last_name }}</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Vazir', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+            direction: rtl;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* Member Details Section */
+        .member-details {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 4px solid #0f3460; /* حاشیه آبی */
+        }
+
+        .member-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a2e; /* رنگ آبی تیره */
+        }
+
+        .member-info p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .member-info p strong {
+            color: #0f3460; /* رنگ آبی */
+        }
+
+        .resume-link {
+            display: inline-block;
+            background-color: #0f3460; /* رنگ آبی */
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .resume-link:hover {
+            background-color: #1a1a2e; /* رنگ آبی تیره */
+            transform: translateY(-5px);
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #0f3460; /* رنگ آبی */
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #1a1a2e; /* رنگ آبی تیره */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="member-details">
+            <img src="{{ member.image.url }}" alt="{{ member.first_name }} {{ member.last_name }}" class="member-image">
+            <div class="member-info">
+                <h1>{{ member.first_name }} {{ member.last_name }}</h1>
+                <p><strong>سن:</strong> {{ member.age }}</p>
+                <p><strong>وضعیت تاهل:</strong> {{ member.marital_status }}</p>
+                <p><strong>وضعیت سربازی:</strong> {{ member.military_status }}</p>
+                <p><strong>تحصیلات:</strong> {{ member.education }}</p>
+                <p><strong>توضیحات:</strong> {{ member.description }}</p>
+                <p><strong>مهارت‌ها:</strong> {{ member.skills }}</p>
+                <a href="{{ member.resume.url }}" class="resume-link" download>دانلود رزومه</a>
+            </div>
+            <a href="{% url 'home:index' %}" class="back-button">بازگشت به صفحه اصلی</a>
+        </div>
+    </div>
+</body>
+</html>
